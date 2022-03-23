@@ -39,6 +39,10 @@ namespace SeleniumStudy
             // id, name, index
             driver.SwitchTo().Frame("courses-iframe");
             driver.FindElement(By.LinkText("All Access Plan")).Click();
+
+            TestContext.Progress.WriteLine(driver.FindElement(By.CssSelector("h1")).Text);
+            driver.SwitchTo().DefaultContent();
+            TestContext.Progress.WriteLine(driver.FindElement(By.CssSelector("h1")).Text);
         }
 
         [Test]
@@ -82,8 +86,6 @@ namespace SeleniumStudy
 
             driver.Url = "https://demoqa.com/droppable/";
             a.DragAndDrop(driver.FindElement(By.Id("draggable")), driver.FindElement(By.Id("droppable"))).Perform();
-        }
-        
-        
+        }        
     }
 }
