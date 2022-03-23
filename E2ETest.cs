@@ -27,7 +27,7 @@ namespace SeleniumStudy
         [Test]
         public void EndToEndFlow()
         {
-
+            String[] expectedProduct = { "iphone X", "Blackberry" };
             driver.FindElement(By.Id("username")).SendKeys("rahulshettyacademy");
             driver.FindElement(By.Name("password")).SendKeys("learning");
             driver.FindElement(By.XPath("//div[@class='form-group'][5]/label/span/input")).Click();
@@ -39,7 +39,11 @@ namespace SeleniumStudy
             IList<IWebElement> products = driver.FindElements(By.TagName("app-card"));
             foreach(IWebElement product in products)
             {
-                product.
+                if(expectedProduct.Contains(product.FindElement(By.CssSelector(".card-title a")).Text))
+                {
+                    product.FindElement(By.CssSelector(".card-footer button")).Click();
+                }
+                TestContext.Progress.WriteLine(product.FindElement(By.CssSelector(".card-title a")).Text);
             }
             driver.FindElement(By.PartialLinkText("Checkout")).Click();
 

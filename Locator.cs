@@ -30,7 +30,7 @@ namespace SeleniumStudy
         public void LocatorIdentication()
         {
             driver.FindElement(By.Id("username")).SendKeys("rahulshettyacademy");
-            driver.FindElement(By.Name("password")).SendKeys("learning");
+            driver.FindElement(By.Name("password")).SendKeys("12345");
 
             //CSS : .text-info span:nth-child(1) input
             // Xpath - //label[@class = 'text-info']/span/input
