@@ -19,7 +19,7 @@ namespace SeleniumStudy
         {
             new WebDriverManager.DriverManager().SetUpDriver(new EdgeConfig());
             driver = new EdgeDriver();
-            // implicit wait 5sec can be declare globally
+            // implicit wait 5sec can be declare globaly
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             driver.Manage().Window.Maximize();
             driver.Url = "https://rahulshettyacademy.com/loginpagePractise";
